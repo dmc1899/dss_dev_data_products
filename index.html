@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>The value of MPG Prediction</title>
+  <meta charset="utf-8">
+  <meta name="description" content="The value of MPG Prediction">
+  <meta name="author" content="Darragh McConville">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>The value of MPG Prediction</h1>
+    <h2>Introducing the MPG Prediction Data Product</h2>
+    <p>Darragh McConville<br/>Architect</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>1 - Introduction</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>There is an acute, global focus on emissions and efficiency of road vehicles.  The ability to assess the likely efficiency of a road vehicle before purchase is a valuable service to avail of.  This data product provides such a service.</p>
+
+<p>The data produt:</p>
+
+<ul>
+<li>Is easy to use, accessible via any browser over the web</li>
+<li>Collects four variables to estimate the likely MPG</li>
+<li>Returns a precise MPG value based on a linear regression model</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>2 - Source Dataset</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>This data product uses a linear regression model which was built using the mtcars dataset.  The dataset contined 32 observations with 11 variables.  Range MPG values is displayed below. </p>
+
+<p><img src="assets/fig/unnamed-chunk-1-1.png" alt="plot of chunk unnamed-chunk-1"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>3 - Linear Regression Model</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>A stepwise-selected model was generated using the step function, which was able to start with the full model, containing all variables and refine this down to four variables and coefficients shown below.</p>
+
+<pre><code>## 
+## Call:
+## lm(formula = mpg ~ cyl + hp + wt + am, data = mtcarscopy)
+## 
+## Coefficients:
+## (Intercept)         cyl6         cyl8           hp           wt  
+##    33.70832     -3.03134     -2.16368     -0.03211     -2.49683  
+##    amManual  
+##     1.80921
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>4 - Model Accuracy</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>From an accuracy perspective, the created model caters for just over 84% of the variance in the data, as shown below.</p>
+
+<pre><code class="r">    summary(best_model)[8]
+</code></pre>
+
+<pre><code>## $r.squared
+## [1] 0.8658799
+</code></pre>
+
+<pre><code class="r">    summary(best_model)[9]
+</code></pre>
+
+<pre><code>## $adj.r.squared
+## [1] 0.8400875
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-5" style="background:;">
+  <hgroup>
+    <h2>5 - Getting Started</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>You can start using the MPG Prediction Data Product by following this <a href="https://darraghmcconville.shinyapps.io/dss_dev_data_products">link</a>.</p>
+
+<p>You can find the source code for the MPG Prediction Data Product at this <a href="https://github.com/dmc1899/dss_dev_data_products">link</a>.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='1 - Introduction'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='2 - Source Dataset'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='3 - Linear Regression Model'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='4 - Model Accuracy'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='5 - Getting Started'>
+         5
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
